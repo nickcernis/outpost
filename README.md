@@ -12,22 +12,28 @@ Portable WordPress development environments with Vagrant, VMware, and WP-CLI.
 Outpost creates a headless virtual server running Ubuntu 14.04 inside your local machine and provisions it with Apache 2.4.7, MySQL 5.5 and PHP 5.5. Then it downloads the latest WordPress and runs the WordPress install for you.
 
 ### You end up with:
+
 - A fresh copy of WordPress running from the virtual machine, accessible in your browser at [http://my.outpost.rocks](http://my.outpost.rocks) with WP username 'outpost' and password 'outpost'.
 - A 'wp/wp-content' folder in your project's directory, synced live with the virtual machine. Just drop your themes and plugins in, then get coding. This lets you develop with any IDE or editor on your system to get the benefits of using a virtual machine – portability, uniformity – without having to see it or interact with it via the command line (unless you want to).
 
 ### Use Outpost to:
+
 1. Launch a fresh WordPress development environment with one command. Like MAMP/WAMP, but without any configuration, setup wizards, or a GUI to get in your way.  (See "Getting Started".)
 2. Package a copy of an existing theme, plugin, or entire WordPress site to distribute to a development team, who can recreate your environment and see the working website with one command. (See "Packaging for distribution".)
 3. Clone a remote site to work on locally in a similar environment. (Experimental. See "Cloning".)
 
 ## Getting started
+
 Before you use Outpost, you'll need to:
+
 1. Purchase and install [VMware Fusion](http://www.vmware.com/products/fusion/) (Mac) or [VMware Workstation](http://www.vmware.com/products/workstation/) (Windows/Linux).
 2. [Install Vagrant.](http://docs.vagrantup.com/v2/installation/)
 3. Purchase and install the [Vagrant VMware plugin](http://www.vagrantup.com/vmware).
 
 ## Launching Outpost
+
 You can launch a new development environment like this:
+
 1. [Download](https://github.com/nickcernis/outpost/archive/master.zip) or [clone](https://github.com/nickcernis/outpost) Outpost.
 2. Rename your `outpost` directory to a project name of your choosing.
 3. Change to that directory and type `vagrant up` in the terminal.
@@ -52,15 +58,18 @@ How that happened is:
 
 ## The workflow
 When you're done working with Outpost or want to switch projects, you can either:
-a) Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk, pauses the machine, and saves RAM and CPU cycles. To resume, type `vagrant resume` again.
-b) Destroy the virtual machine with `vagrant destroy -f`. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the database dump it creates every three minutes.
+
+1. Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk, pauses the machine, and saves RAM and CPU cycles. To resume, type `vagrant resume` again.
+2. Destroy the virtual machine with `vagrant destroy -f`. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the database dump it creates every three minutes.
 
 If you restart your computer without using `vagrant suspend` or `vagrant destroy -f`, you can bring your Outpost back again with `vagrant up`.
 
 Because all Outposts use the http://my.outpost.rocks URL and the same IP address, you should only ever run one Outpost at a time. You can develop multiple themes and plugins using one Outpost, though. Or you can suspend one Outpost and run another. You can use the `vagrant global-status` command to see all of the Outposts you've ever created, and destroy ones you're not using to save disk space.
 
 ## How MySQL changes work
-When you're running Outpost, it dumps the database every three minutes to /wp/wp-data/outpost.sql. When you run `vagrant up`, Outpost looks for the `outpost.sql` file and uses it to recreate the database. That means you can destroy the virtual machine and run `vagrant up` without losing all of your data. This zero-configuration setup offers the potential to lose data, but I felt it was better than asking users to manually make backups. There may be better ways to handle it, though, such as using Vagrant's hooks to trigger SQL dumps after a suspend, halt, or destroy, but for now periodic SQL dumps seems adequate for general theme and plugin development, where database content is typically static and it's mostly theme and plugin files that are changing.
+When you're running Outpost, it dumps the database every three minutes to /wp/wp-data/outpost.sql. When you run `vagrant up`, Outpost looks for the `outpost.sql` file and uses it to recreate the database. This means you can destroy the virtual machine and run `vagrant up` without losing all of your data.
+
+This zero-configuration setup offers the potential to lose data, but I felt it was better than asking users to manually trigger backups. There may be better ways to storing state, though, such as using Vagrant's hooks to trigger SQL dumps after a suspend, halt, or destroy. For now, periodic SQL dumps seems adequate for general theme and plugin development, where database content is typically static and it's mostly theme and plugin files that are changing.
 
 If you need to access MySQL from the console, the MySQL root password is 'mysql'.
 
@@ -68,6 +77,7 @@ If you need to access MySQL from the console, the MySQL root password is 'mysql'
 Outpost is still in development, but the project's goals are to help you to:
 
 ### Say NO to...
+
 - manual installation and configuration of MySQL, PHP, and Apache or nginx on your local system.
 - manual downloads, MySQL database and user creation, and in-browser WordPress setup.
 - fixing file permissions and ownership to get local plugin installation and updates working.
@@ -78,6 +88,7 @@ Outpost is still in development, but the project's goals are to help you to:
 - watching impatiently as `vagrant up` builds an entire server stack each time. (Outpost gets around this by providing a [custom box](https://github.com/nickcernis/outpost-packer) preconfigured with a LAMP stack and essential tools, so that `vagrant up` takes around two minutes instead of five times that).
 
 ### Say YES to...
+
 - a LAMP environment provisioned for you automatically on a virtual machine, separate from the rest of your system, and easily reproducible.
 - the latest version of WordPress core installed and ready to go as part of the service.
 - a 'wp-content' folder in your project root for your plugin and theme files, synced to the virtual machine's web root.
@@ -86,6 +97,7 @@ Outpost is still in development, but the project's goals are to help you to:
 - a way to clone remote sites as local dev sites in one click (in development).
 
 ### TODO:
+
 - Fix plugin issues to safely clone a live remote WordPress site as a local development environment.
 - A way to choose system configuration options prior to startup. (To use nginx instead of Apache, for example.)
 - Add PHPMyAdmin.
@@ -113,6 +125,7 @@ I hope to make it easier to pull remote database changes back to your Outpost, b
 I welcome all contributions and feature requests.
 
 ## Other notes
+
 - If `wp/wp-content/` is blank, Outpost puts a clean copy of WordPress core's wp-content in there.
 - If `wp/wp-content/` contains theme and plugin files, Outpost uses your wp-content directory to build your site.
 - It's safe to delete the contents of the `wp/wp-content/` and `wp/wp-data` folders to reset your Outpost and force a new download of WordPress on the next `vagrant up`, but don't delete the directories themselves.
