@@ -51,10 +51,9 @@ If you're not familiar with [Vagrant](http://vagrantup.com) or virtual machines,
 
 How that happened is:
 
-- [VMware](https://www.virtualbox.org/wiki/Virtualization) enables an preconfigured server to run on your machine, without you having to mess around and install MySQL or WordPress.
+- [VMware](https://www.virtualbox.org/wiki/Virtualization) runs a [preconfigured server](https://github.com/nickcernis/outpost-packer) on your machine, without you having to mess around and install MySQL or WordPress.
 - Vagrant launches the server, syncs folders between your machine and the server, and installs WordPress and other essential tools when you first run `vagrant up`.
 - The A record for the my.outpost.rocks domain points to the IP address 192.168.53.53, which is the address of the VMware box on your local machine. When you visit that URL, your browser serves up the website served from your virtual machine on your own computer. (The URL is *not* publicly accessible to your clients or anyone but you.)
-
 
 ## The workflow
 When you're done working with Outpost or want to switch projects, you can either:
@@ -73,6 +72,21 @@ This zero-configuration setup offers the potential to lose data, but I felt it w
 
 If you need to access MySQL from the console, the MySQL root password is 'mysql'.
 
+## How Outpost is different
+
+Outpost differs from traditional WordPress development environment setups such as WAMP, MAMP, and DesktopServer in these ways:
+
+1. It uses Vagrant and VMware's virtualisation products to create a tiny server running on your own machine that better mimics the average shared server.
+2. It automates the entire WordPress setup experience in one terminal command: `vagrant up`. That means less time configuring and more time coding.
+3. When you need it, you have complete control over the development server.
+
+Outpost differs from other Vagrant-based WordPress developer setups such as [VVV](https://github.com/Varying-Vagrant-Vagrants/VVV) in a few ways:
+
+1. Outpost uses a [custom box](https://github.com/nickcernis/outpost-packer) that includes PHP, MySQL, Apache, and WP-CLI, so that you don't have to watch all of those things build each time you run `vagrant up`. WordPress itself is the only thing that `vagrant up` adds during the provisioning process.
+2. Outpost is a plugin – not just a Vagrant template. You can use it stand-alone to generate new WordPress environments, or you can install it on a WordPress blog and use it to generate an “Outpost” – a packaged group of files to download and recreate that site locally using `vagrant up` for development and debugging.
+3. Outpost is optimised for theme and plugin development – it's not designed for hacking on WordPress itself.
+
+
 ## Philosophy
 Outpost is still in development, but the project's goals are to help you to:
 
@@ -84,7 +98,7 @@ Outpost is still in development, but the project's goals are to help you to:
 - setup of LAMP or WAMP stacks through GUIs or wizards using MAMP, WAMP, or DesktopServer.
 - configuring and remembering lists of local dev URLs, editing `/etc/hosts`, or developing on a bare IP address.
 - asking new team members to spend their first day recreating your development environment.
-- hot hacking on live production sites because it was too hard or tedious to set up a local development copy.
+- hot hacking on live production sites because it was too hard to set up a local development copy.
 - watching impatiently as `vagrant up` builds an entire server stack each time. (Outpost gets around this by providing a [custom box](https://github.com/nickcernis/outpost-packer) preconfigured with a LAMP stack and essential tools, so that `vagrant up` takes around two minutes instead of five times that).
 
 ### Say YES to...
