@@ -122,7 +122,7 @@ Outpost is also a WordPress plugin – install it and you'll find that it can do
 
 If you need to recreate a live site locally using Outpost, at the moment I recommend that you:
 
-1. Download Outpost.
+1. [Download Outpost](https://github.com/nickcernis/outpost/archive/master.zip).
 2. Rename the `outpost` directory with your project name.
 3. Download the contents of your remote `/wp-content/` folder to Outpost's `/wp/wp-content` folder.
 4. Dump your live MySQL database (with PHPMyAdmin or with [WP Migrate DB](https://wordpress.org/plugins/wp-migrate-db/)), rename it “outpost.sql” and put it in `/wp/wp-data`
@@ -143,6 +143,3 @@ I welcome all contributions and feature requests.
 - If `wp/wp-content/` is blank, Outpost puts a clean copy of WordPress core's wp-content in there.
 - If `wp/wp-content/` contains theme and plugin files, Outpost uses your wp-content directory to build your site.
 - It's safe to delete the contents of the `wp/wp-content/` and `wp/wp-data` folders to reset your Outpost and force a new download of WordPress on the next `vagrant up`, but don't delete the directories themselves.
-
-
-
