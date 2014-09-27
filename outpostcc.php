@@ -3,7 +3,7 @@
  * Plugin Name: Outpost
  * Plugin URI: http://outpost.cc
  * Description: Create local development versions of live WordPress sites, or fresh WordPress environments from scratch.
- * Version: 0.1.1
+ * Version: 0.1.2
  * Author: Nick Cernis
  * Author URI: http://goburo.com
  * License: GPLv2+
@@ -61,7 +61,7 @@ class Outpost_CC
 
     function add_menu()
     {
-        if ( isset($_POST['submit']) ) { // TODO: FIX THIS! Will currently run on submission of *any* admin form
+        if ( isset($_POST['submit']) && isset($_POST['generate_outpost']) ) {
             if (current_user_can('export'))
                 $this->generate_outpost();
         } else {

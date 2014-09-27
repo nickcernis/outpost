@@ -51,6 +51,7 @@
                 echo '<br/>';
             }
             ?>
+			<input type="hidden" name="generate_outpost" value="true" />
             <p><input type="submit" name="submit" value="Download Your Outpost" class="button button-primary"/></p>
         </form>
 
