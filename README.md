@@ -76,7 +76,7 @@ How that happened is:
 When you're done working with Outpost or want to switch projects, you can either:
 
 1. Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk and pauses the machine, saving RAM and CPU cycles. To resume, type `vagrant resume`.
-2. Destroy the virtual machine with `vagrant destroy -f`. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the database dump it creates every three minutes.
+2. Destroy the virtual machine with `vagrant destroy -f`. This destroys the virtual machine, saving RAM, CPU cycles, and disk space, but resuming will take longer. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the files in your `wp/wp-content` folder and from the database dump it creates every three minutes.
 
 If you restart your computer without using `vagrant suspend` or `vagrant destroy -f`, you can bring your Outpost back again with `vagrant up`.
 
