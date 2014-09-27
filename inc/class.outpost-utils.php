@@ -43,7 +43,7 @@ class Outpost_Utils
     public static function make_folder($folder, $permissions = 0777)
     {
         if (!is_dir($folder)) {
-            mkdir($folder, $permissions);
+            mkdir($folder, $permissions, true);
         }
     }
 
