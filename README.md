@@ -61,26 +61,26 @@ This feature is planned – you'll be able to share sites with other developers 
 
 ## New to Vagrant and virtual machines? Read this:
 
-If you're not familiar with [Vagrant](http://vagrantup.com) or virtual machines, what you have at this point is:
+If you're not familiar with [Vagrant](http://vagrantup.com) or virtual machines, what you have after you type `vagrant up` is:
 
 - A working copy of WordPress core running in VMware Fusion/Workstation on a virtual machine using Ubuntu 14.04. The machine's accessible in your browser at http://my.outpost.rocks, and via SSH using `vagrant ssh` from your project's root directory.
 - A `wp/wp-content` folder on your local machine that syncs to Apache's `/var/www/html/wp-content` folder on the virtual machine. This lets you build themes and plugins locally with your favourite editor – changes you make to files in `wp/wp-content` automatically sync to the virtual machine.
 
 How that happened is:
 
-- [VMware](https://www.virtualbox.org/wiki/Virtualization) runs a [preconfigured server](https://github.com/nickcernis/outpost-packer) on your machine, without you having to mess around and install MySQL or WordPress.
-- Vagrant launches the server, syncs folders between your machine and the server, and installs WordPress and other essential tools when you first run `vagrant up`.
-- The A record for the my.outpost.rocks domain points to the IP address 192.168.53.53, which is the address of the VMware box on your local machine. When you visit that URL, your browser serves up the website served from your virtual machine on your own computer. (The URL is *not* publicly accessible to your clients or anyone but you.)
+- [VMware](https://www.virtualbox.org/wiki/Virtualization) runs a [preconfigured server](https://github.com/nickcernis/outpost-packer) on your machine, which saves you having to mess around and install MySQL and other WordPress dependencies.
+- Vagrant launches the server, syncs folders between your machine and the server, and installs WordPress when you first run `vagrant up`.
+- The A record for the my.outpost.rocks domain points to the IP address 192.168.53.53, which is the address of the VMware box on your local machine. When you visit that URL, your browser serves the website hosted in the virtual machine on your own computer. (The URL is *not* publicly accessible to your clients.)
 
 ## The workflow
 When you're done working with Outpost or want to switch projects, you can either:
 
-1. Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk, pauses the machine, and saves RAM and CPU cycles. To resume, type `vagrant resume` again.
+1. Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk and pauses the machine, saving RAM and CPU cycles. To resume, type `vagrant resume`.
 2. Destroy the virtual machine with `vagrant destroy -f`. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the database dump it creates every three minutes.
 
 If you restart your computer without using `vagrant suspend` or `vagrant destroy -f`, you can bring your Outpost back again with `vagrant up`.
 
-Because all Outposts use the http://my.outpost.rocks URL and the same IP address, you should only ever run one Outpost at a time. You can develop multiple themes and plugins using one Outpost, though. Or you can suspend one Outpost and run another. You can use the `vagrant global-status` command to see all of the Outposts you've ever created, and destroy ones you're not using to save disk space.
+Because all Outposts use the http://my.outpost.rocks URL and the same IP address, you should only ever run one Outpost at a time. You can develop multiple themes and plugins using one Outpost, though. Or you can suspend one Outpost and run another. Use the `vagrant global-status` command to see all of the Outposts you've ever created, and destroy ones you're not using to save disk space (with `vagrant destroy [box-id]`).
 
 ## How MySQL changes work
 When you're running Outpost, it dumps the database every three minutes to /wp/wp-data/outpost.sql. When you run `vagrant up`, Outpost looks for the `outpost.sql` file and uses it to recreate the database. This means you can destroy the virtual machine and run `vagrant up` without losing all of your data.
