@@ -111,6 +111,11 @@ Outpost differs from other Vagrant-based WordPress developer setups such as [VVV
 2. Outpost is a plugin – not just a Vagrant template. You can use it stand-alone to generate new WordPress environments, or you can install it on a WordPress blog and use it to generate an “Outpost” – a packaged group of files to download and use to recreate that site locally for development and debugging with `vagrant up`.
 3. Outpost is optimised for theme and plugin development – it's not designed for hacking on WordPress itself. (It doesn't make WordPress core files available via vagrant's shared folder – it just shares `wp-content`.)
 
+Outpost also differs from other projects in these ways:
+
+1. Outpost is preconfigured with a live development URL: http://my.outpost.rocks. You don't have to create, remember, or maintain `example.dev` URLs, and you don't have to edit your `/etc/hosts` file to point made-up domains to an internal IP. (The A record for my.outpost.rocks already points to the Outpost virtual machine IP address.) This gives you one simple URL to hack on all your WordPress themes and plugins, with zero configuration.
+2. Outpost has a handy website at http://outpost.rocks with short video walkthroughs (<em>coming soon!</em>) designed to make Outpost easier to adopt.
+
 ### TODO:
 
 - Fix plugin issues to safely clone a live remote WordPress site as a local development environment.
