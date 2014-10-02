@@ -1,6 +1,8 @@
 # Outpost
 Portable WordPress development environments with Vagrant, VMware, and WP-CLI.
 
+http://outpost.rocks
+
 **Version**: 0.1.2
 | **Licence**: MIT
 | **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)
