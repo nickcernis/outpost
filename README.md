@@ -91,6 +91,8 @@ This zero-configuration setup offers the potential to lose data, but I felt it w
 
 If you need to access MySQL from the console, the MySQL root password is 'mysql'. (You can SSH into the virtual machine using `vagrant ssh` from the command line. No user or password is needed.)
 
+Outpost also ships with phpMyAdmin, accessible at http://my.outpost.rocks/phpmyadmin/ with username `root` and password `mysql`.
+
 ## Deployment and data syncing
 
 Outpost is *not* yet designed to push theme, plugin, or database changes you've made back to a staging or production server. It's worth setting up a separate deployment strategy for that, perhaps using a service such as [Deploy](https://www.deployhq.com/).
@@ -122,7 +124,6 @@ Outpost also differs from other projects in these ways:
 
 - Fix plugin issues to safely clone a live remote WordPress site as a local development environment.
 - Offer a way to choose system configuration options prior to startup. (To use nginx instead of Apache, for example.)
-- Add PHPMyAdmin.
 - Fix permissions issues with WordPress root. (Plugin installation and updates currently work, but WordPress updates prompt for an FTP password.)
 
 
