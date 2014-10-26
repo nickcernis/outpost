@@ -36,7 +36,7 @@ class Outpost_Rocks
     function __construct()
     {
         $this->upload_dir = wp_upload_dir();
-        $this->outpost_dir = $this->upload_dir['basedir'] . '/' . 'outpost';
+        $this->outpost_dir = $this->upload_dir['basedir'] . '/' . 'outpost' . uniqid();
         $this->outpost_content_dir = $this->outpost_dir . '/wp/wp-content';
         $this->outpost_data_dir = $this->outpost_dir . '/wp/wp-data';
         $this->outpost_plugins_dir = $this->outpost_content_dir . '/' . 'plugins';
@@ -79,7 +79,7 @@ class Outpost_Rocks
         set_time_limit(0);
 
         // Create the Outpost directory structure in the uploads folder
-        Outpost_Utils::delete_file_or_folder($this->outpost_dir); // cleanup old outpost if required
+//        Outpost_Utils::delete_file_or_folder($this->outpost_dir); // cleanup old outpost if required
         Outpost_Utils::copy_file_or_folder(dirname(__FILE__), $this->outpost_dir);
 
         // Dump the database
