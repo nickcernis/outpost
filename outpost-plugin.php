@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Outpost
- * Plugin URI: http://outpost.cc
+ * Plugin URI: http://outpost.rocks
  * Description: Create local development versions of live WordPress sites, or fresh WordPress environments from scratch.
  * Version: 0.1.3
  * Author: Nick Cernis
