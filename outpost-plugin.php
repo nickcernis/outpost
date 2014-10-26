@@ -65,7 +65,7 @@ class Outpost_Rocks
             if (current_user_can('export'))
                 $this->generate_outpost();
         } else {
-            add_management_page('Outpost', 'Outpost', 'manage_options', 'outpostcc', array($this, 'show_admin_page'));
+            add_management_page('Outpost', 'Outpost', 'manage_options', 'outpostrocks', array($this, 'show_admin_page'));
         }
     }
 
