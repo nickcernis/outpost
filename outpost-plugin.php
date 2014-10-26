@@ -21,8 +21,8 @@ TODO: Give users option to store wp-config.php file?
 */
 
 
-include_once(dirname(__FILE__) . '/inc/class.outpost-utils.php');
-include_once(dirname(__FILE__) . '/inc/class.outpost-db-dump.php');
+include_once(dirname(__FILE__) . '/plugin/inc/class.outpost-utils.php');
+include_once(dirname(__FILE__) . '/plugin/inc/class.outpost-db-dump.php');
 
 class Outpost_Rocks
 {
@@ -71,7 +71,7 @@ class Outpost_Rocks
 
     function show_admin_page()
     {
-        load_template(dirname(__FILE__) . '/templates/options-page.php');
+        load_template(dirname(__FILE__) . '/plugin/templates/options-page.php');
     }
 
     function generate_outpost()
