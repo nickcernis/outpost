@@ -78,10 +78,13 @@ class Outpost_Rocks
     {
         set_time_limit(0);
 
+        // Create a blank index.php file in the uploads directory to prevent directory listing
+        file_put_contents($this->upload_dir['basedir'] . '/index.php', '<?php // silence is golden');
+
         // Create the Outpost directory structure in the uploads folder
 //        Outpost_Utils::delete_file_or_folder($this->outpost_dir); // cleanup old outpost if required
         Outpost_Utils::copy_file_or_folder(dirname(__FILE__), $this->outpost_dir);
-
+        
         // Dump the database
         $db_dump = new Outpost_DB_Dump($this->outpost_data_dir . '/outpost.sql');
 
