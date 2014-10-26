@@ -36,6 +36,7 @@ define( 'WP_DEBUG_DISPLAY', false ); // just log silently to /wp-content/debug.l
 define( 'SAVEQUERIES', true );
 define( 'WP_HOME', 'http://my.outpost.rocks' );
 define( 'WP_SITEURL', 'http://my.outpost.rocks' );
+define( 'JETPACK_DEV_DEBUG', true);
 xdebug_disable(); // disable visual stack traces; use xdebug for interactive debugging sessions only
 PHP
 fi
