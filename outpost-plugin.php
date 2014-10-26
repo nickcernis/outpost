@@ -24,7 +24,7 @@ TODO: Give users option to store wp-config.php file?
 include_once(dirname(__FILE__) . '/inc/class.outpost-utils.php');
 include_once(dirname(__FILE__) . '/inc/class.outpost-db-dump.php');
 
-class Outpost_CC
+class Outpost_Rocks
 {
     private $upload_dir;
     private $outpost_dir;
@@ -131,4 +131,4 @@ class Outpost_CC
 
 }
 
-$outpostcc = new Outpost_CC();
+$outpost_rocks = new Outpost_Rocks();
