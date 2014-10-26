@@ -8,7 +8,7 @@ class Outpost_Utils
     {
         $path = realpath($source);
 
-        if (is_file($path)){
+        if (is_file($path)) {
             copy($path, $destination);
             return;
         }
@@ -66,7 +66,7 @@ class Outpost_Utils
             foreach ($files as $path => $file) {
                 // Close and reopen the zip file every 255 files to work around the lowest likely ulimit() for the
                 // maximum number of open files. See http://www.php.net/manual/en/ziparchive.addfile.php#74297
-                if ($zip->numFiles % 255 == 0){
+                if ($zip->numFiles % 255 == 0) {
                     $zip->close();
                     $zip->open($destination, ZIPARCHIVE::CREATE);
                 }
