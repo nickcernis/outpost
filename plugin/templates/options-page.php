@@ -3,7 +3,7 @@
     <h2>Outpost</h2>
 
     <div class="tool-box">
-        <p>Generate a packaged version of this site to download for development use on your local machine.</p>
+        <p>Generate a packaged version of this site to download for development use on your local machine. <a href="http://outpost.rocks/">Learn more.</a></p>
 
         <form action="" method="post">
             <h3>Themes to export</h3>
