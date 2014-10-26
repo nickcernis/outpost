@@ -3,7 +3,7 @@ Portable WordPress development environments with Vagrant, VMware, and WP-CLI.
 
 http://outpost.rocks
 
-**Version**: 0.1.3
+**Version**: 0.1.4
 | **Licence**: MIT
 | **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)
 
@@ -36,7 +36,7 @@ Before you use Outpost, you'll need to:
 
 You can launch a new development environment with Outpost like this:
 
-1. [Download](https://github.com/nickcernis/outpost/archive/master.zip) or [clone](https://github.com/nickcernis/outpost) Outpost.
+1. [Download Outpost.](http://outpost.rocks)
 2. Rename your `outpost` directory to a project name of your choosing.
 3. Change to that directory and type `vagrant up` in the terminal.
 
@@ -49,7 +49,7 @@ Outpost is also a WordPress plugin – install it and you'll find that it can do
 
 If you need to recreate a live site locally using Outpost, at the moment I recommend that you:
 
-1. [Download Outpost](https://github.com/nickcernis/outpost/archive/master.zip).
+1. [Download Outpost.](http://outpost.rocks)
 2. Rename the `outpost` directory with your project name.
 3. Download the contents of your remote `/wp-content/` folder to Outpost's `/wp/wp-content` folder.
 4. Dump your live MySQL database (with PHPMyAdmin or with [WP Migrate DB](https://wordpress.org/plugins/wp-migrate-db/)), rename it “outpost.sql” and put it in `/wp/wp-data`
