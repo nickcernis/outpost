@@ -44,6 +44,7 @@ class Outpost_DB_Dump
 
         $time_completed = date('l jS \of F Y H:i:s \U\T\C');
         fwrite($this->output, "-- DUMP COMPLETED ON $time_completed\n");
+        fclose($this->output);
     }
 
     private function get_tables()
