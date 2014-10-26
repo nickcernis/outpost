@@ -39,7 +39,7 @@
 
             foreach ($plugins as $file => $details) {
 //                echo WP_PLUGIN_DIR . "/" . $file . "<br>";
-                if (strpos($file, 'outpostcc.php'))
+                if (strpos($file, 'outpost-plugin.php'))
                     continue; // don't offer the Outpost plugin as a download option
 
                 echo '<label>';
