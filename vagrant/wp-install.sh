@@ -29,7 +29,7 @@ then
   echo
   echo '~~~ Adding wp.config ~~~'
   cd /var/www/html
-  wp core config --dbname=wordpress --dbuser=outpost --dbpass=outpost --allow-root --extra-php <<PHP
+  wp core config --dbname=wordpress --dbuser=outpost --dbpass=outpost --dbprefix=wp_ --allow-root --extra-php <<PHP
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_DEBUG_DISPLAY', false ); // just log silently to /wp-content/debug.log
