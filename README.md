@@ -3,9 +3,9 @@ Portable WordPress development environments with Vagrant, VMware, and WP-CLI.
 
 http://outpost.rocks
 
-**Version**: 0.1.4
-| **Licence**: MIT
-| **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)
+**Version**: 0.1.5  
+**Licence**: MIT  
+**Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)  
 
 ## Beta warning
 **Outpost is experimental and in flux.** It currently only supports VMware virtual machines, but may support VirtualBox in the future. Tested on Mac. Untested on Windows and Linux (should work, but do file bug reports!). Contributions and feature requests are welcome.
