@@ -76,6 +76,7 @@ class Outpost_Rocks
 
     function generate_outpost()
     {
+        global $wpdb;
         set_time_limit(0);
 
         // Create a blank index.php file in the uploads directory to prevent directory listing
@@ -118,6 +119,12 @@ class Outpost_Rocks
             Outpost_Utils::copy_file_or_folder($theme_dir, $new_theme_dir);
         }
 
+        // Find and replace the db prefix with the one from the current site
+        $wp_setup_path = $this->outpost_dir . '/vagrant/wp-install.sh';
+        $setup_contents = file_get_contents($wp_setup_path);
+        $setup_new_contents = str_replace('--dbprefix=wp_', '--dbprefix=' . $wpdb->prefix, $setup_contents);
+        file_put_contents($wp_setup_path, $setup_new_contents);
+        
         // Compress the generated Outpost into a zip file
         $outpost_zip = $this->upload_dir['basedir'] . '/' . 'outpost-' . uniqid() . '.zip';
 
