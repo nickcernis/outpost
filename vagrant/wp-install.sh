@@ -37,6 +37,7 @@ define( 'SAVEQUERIES', true );
 define( 'WP_HOME', 'http://my.outpost.rocks' );
 define( 'WP_SITEURL', 'http://my.outpost.rocks' );
 define( 'JETPACK_DEV_DEBUG', true);
+define( 'FS_METHOD', 'direct' );
 xdebug_disable(); // disable visual stack traces; use xdebug for interactive debugging sessions only
 PHP
 fi
