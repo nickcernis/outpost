@@ -3,7 +3,7 @@ Portable WordPress development environments with Vagrant, VMware, and WP-CLI.
 
 http://outpost.rocks
 
-**Version**: 0.1.5  
+**Version**: 0.1.6  
 **Licence**: MIT  
 **Author**: Nick Cernis [@nickcernis](http://twitter.com/nickcernis)  
 
@@ -31,6 +31,8 @@ Before you use Outpost, you'll need to:
 1. Purchase and install [VMware Fusion](http://www.vmware.com/products/fusion/) (Mac) or [VMware Workstation](http://www.vmware.com/products/workstation/) (Windows/Linux).
 2. [Install Vagrant.](http://docs.vagrantup.com/v2/installation/)
 3. Purchase and install the [Vagrant VMware plugin](http://www.vagrantup.com/vmware).
+
+Note: By default, vagrant uses the VirtualBox provider and will look for VirtualBox machines when you run `vagrant up`. You can tell it to use VMware boxes instead with `vagrant up --provider=vmware_fusion`. Since typing all that is a pain, you might like to tell vagrant to use VMware by default instead of VirtualBox by setting the [default provider](http://docs.vagrantup.com/v2/providers/default.html). That way, you can just type `vagrant up` and launch the VMware box by default.
 
 ## 1. Creating a fresh development environment
 
@@ -80,7 +82,7 @@ When you're done working with Outpost or want to switch projects, you can either
 1. Suspend the virtual machine with `vagrant suspend`. This writes RAM to disk and pauses the machine, saving RAM and CPU cycles. To resume, type `vagrant resume`.
 2. Destroy the virtual machine with `vagrant destroy -f`. This destroys the virtual machine, saving RAM, CPU cycles, and disk space, but resuming will take longer. To resume, type `vagrant up`. Outpost will recreate your WordPress site from the files in your `wp/wp-content` folder and from the database dump it creates every three minutes.
 
-If you restart your computer without using `vagrant suspend` or `vagrant destroy -f`, you can bring your Outpost back again with `vagrant up`.
+If you restart your computer without using `vagrant suspend` or `vagrant destroy -f`, you can bring your Outpost back again with `vagrant up` and/or `vagrant provision`.
 
 Because all Outposts use the http://my.outpost.rocks URL and the same IP address, you should only ever run one Outpost at a time. You can develop multiple themes and plugins using one Outpost, though. Or you can suspend one Outpost and run another. Use the `vagrant global-status` command to see all of the Outposts you've ever created, and destroy ones you're not using to save disk space (with `vagrant destroy [box-id]`).
 
@@ -122,10 +124,8 @@ Outpost also differs from other projects in these ways:
 
 ### TODO:
 
-- Fix plugin issues to safely clone a live remote WordPress site as a local development environment.
+- Fix plugin issues when cloning large databases.
 - Offer a way to choose system configuration options prior to startup. (To use nginx instead of Apache, for example.)
-- Fix permissions issues with WordPress root. (Plugin installation and updates currently work, but WordPress updates prompt for an FTP password.)
-
 
 ## Contributing
 

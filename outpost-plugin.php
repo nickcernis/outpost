@@ -3,7 +3,7 @@
  * Plugin Name: Outpost
  * Plugin URI: http://outpost.rocks
  * Description: Create local development versions of live WordPress sites, or fresh WordPress environments from scratch.
- * Version: 0.1.5
+ * Version: 0.1.6
  * Author: Nick Cernis
  * Author URI: http://goburo.com
  * License: GPLv2+
@@ -16,8 +16,6 @@ TODO: Autodetect Apache/Nginx, PHP version, WP version - but allow overrides - a
 TODO: Stagger file copying, database dumps, and zipping to avoid timeouts with larger files and databases (use JS on timer, like Regenerate Thumbnails plugin)
 TODO: Give user progress feedback (Store progress with PHP using http://codex.wordpress.org/Transients_API then poll to get progress with JS.)
 TODO: WP multisite support?
-TODO: Setup for hacking on WP itself?
-TODO: Give users option to store wp-config.php file?
 */
 
 
