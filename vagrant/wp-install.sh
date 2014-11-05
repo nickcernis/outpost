@@ -63,8 +63,11 @@ fi
 echo
 echo '~~~ Installing plugins ~~~'
 cd /var/www/html
-wp plugin install debug-bar --allow-root
-wp plugin activate debug-bar --allow-root
+wp plugin install debug-bar --allow-root --quiet
+wp plugin activate debug-bar --allow-root --quiet
+wp plugin install root-relative-urls --allow-root --quiet
+wp plugin activate root-relative-urls --allow-root --quiet
+echo 'Done'
 
 # Remove Apache's index.html
 if [ -f /var/www/html/index.html ]
