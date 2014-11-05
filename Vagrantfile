@@ -2,7 +2,7 @@ Vagrant.configure('2') do |config|
   config.vm.box = 'nickcernis/outpost'
 
   # Forward ports. (Used for debugging.)
-  #config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
+  config.vm.network :forwarded_port, guest: 80, host: 80, auto_correct: true
   #config.vm.network :forwarded_port, guest: 3306, host: 3333, auto_correct: true
 
   # Give the virtual machine a static IP
